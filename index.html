@@ -3,90 +3,291 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MSSN NILEST</title>
-  <link rel="stylesheet" href="animate.min.css">
+  <title>MSSN NILEST CHAPTER</title>
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
   <style>
-    section {
-      height: 100vh;
-      padding-top: 80px; /* space for fixed navbar */
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden !important;
+      scroll-behavior: smooth;
     }
+    * { box-sizing: border-box; }
+    section { width: 100%; overflow-x: hidden; padding: 80px 0; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    .navbar-brand { font-weight: 700; letter-spacing: 1px; }
+
+    #home {
+      background: #000 center/cover no-repeat;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative; color: white;
+    }
+    #home::before {
+      content: ""; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5); z-index: 0;
+    }
+    #home .container { position: relative; z-index: 1; padding: 0 15px; }
+    #home h1 { font-size: 3rem; font-weight: bold; }
+    #home p { font-size: 1.5rem; }
+    @media (max-width: 768px) { #home h1 { font-size: 2.2rem; } #home p { font-size: 1.2rem; } }
+    @media (max-width: 576px) { #home h1 { font-size: 1.8rem; } #home p { font-size: 1rem; } }
+
+    .official-card {
+      position: relative;
+      height: 350px;
+      color: white;
+      border-radius: 20px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .official-card::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
+    }
+    .official-card .card-content {
+      position: absolute;
+      bottom: 20px; left: 0; width: 100%;
+      text-align: center; z-index: 2;
+    }
+    .official-card:hover { transform: scale(1.03); }
+
+    .mission-vision {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin-top: 50px;
+    }
+    .mission-vision h4 {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .mission-vision p {
+      max-width: 500px;
+      margin: 0 auto;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    footer { text-align: center; }
+    footer a:hover { opacity: 0.8; }
   </style>
 </head>
+
 <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="80" tabindex="0">
 
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="#">NILEST Muslim Society</a>
+      <a class="navbar-brand" href="#">MSSN NILEST</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="#home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#officials">Officials</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#services">Services</a>
-          </li>
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#officials">Officials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
         </ul>
       </div>
     </div>
   </nav>
-</header>
 
-<section id="home" style="
-  background: url('home.avif') center/cover no-repeat;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  color: white;
-">
-  <!-- Overlay -->
-  <div style="
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-  "></div>
+  <!-- Hero Section -->
+  <section id="home" data-bg="images/Hero/home.avif">
+    <div class="container">
+      <h1 class="animate__animated animate__fadeInUp">MSSN NILEST CHAPTER</h1>
+      <p class="animate__animated animate__fadeInUp animate__delay-1s">
+        "There is no deity worthy of worship except ALLAH and Muhammad is His messenger"
+      </p>
+    </div>
+  </section>
 
-  <!-- Content -->
-  <div class="container" style="position: relative; z-index: 1;">
-    <h1 style="font-size:3rem; font-weight:bold;" class="animate__animated animate__fadeInUp">MSSN NILEST CHAPTER</h1>
-    <p style="font-size:1.5rem;">"Building Unity, Inspiring Change"</p>
-  </div>
-</section>
+  <!-- About Section -->
+  <section id="about" style="background:#e9ecef;">
+    <div class="container overflow-hidden">
+      <div class="text-center mb-5" data-aos="fade-left">
+        <h2 class="fw-bold">About MSSN NILEST Chapter</h2>
+        <p class="text-muted mx-auto" style="max-width:700px;">
+          The Muslim Students Society of Nigeria (MSSN), NILEST Chapter, is a community of devoted Muslim students committed to fostering unity, spiritual growth, and academic excellence within the Nigerian Institute of Leather and Science Technology.
+        </p>
+      </div>
 
+      <div class="row gx-4 align-items-center">
+        <div class="col-md-6 mb-4" data-aos="fade-left">
+          <img src="images/About/about.jpeg" loading="lazy" alt="MSSN Members" class="img-fluid rounded-4 shadow">
+        </div>
+        <div class="col-md-6 mx-auto text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="mission-vision">
+            <div class="section mission" data-aos="fade-right" data-aos-delay="200">
+              <h4>Our Mission</h4>
+              <p>To promote Islamic values, encourage moral uprightness, and support members in their academic and personal pursuits.</p>
+            </div>
+            <div class="section vision" data-aos="fade-left" data-aos-delay="400">
+              <h4>Our Vision</h4>
+              <p>To raise a generation of knowledgeable, responsible, and God-conscious youths who will positively impact society.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="about" style="background:#e9ecef;">
-  <div class="container"><h1>About</h1></div>
-  <div class="container">
-    <div class="row mt-5">
-    <div class="col-md-6">dd</div>
-    <div class="col-md-6">ewe</div>
-  </div>
-  </div>
-</section>
-<section id="officials" style="background:#f8f9fa;">
-  <div class="container"><h1>Officials</h1></div>
-</section>
-<section id="services" style="background:#e9ecef;">
-  <div class="container"><h1>Services</h1></div>
-</section>
+  <!-- Officials Section -->
+  <section id="officials" style="background:#f8f9fa;">
+    <div class="container overflow-hidden">
+      <div class="text-center mb-5" data-aos="fade-left">
+        <h2 class="fw-bold">Our Officials</h2>
+        <p class="text-muted mx-auto" style="max-width:700px;">
+          Meet the dedicated leaders of the MSSN NILEST Chapter, committed to guiding our members with wisdom, service, and faith.
+        </p>
+      </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="100">
+          <div class="card official-card text-white border-0 shadow-sm lazy-bg" data-bg="images/2025/ameer.jpeg">
+            <div class="card-content text-center">
+              <h5 class="fw-bold mb-1">Abdullahi Musa</h5>
+              <p class="fw-semibold mb-1" style="color:#28a745 !important;">Ameer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="200">
+          <div class="card official-card text-white border-0 shadow-sm lazy-bg" data-bg="images/2025/ameera.jpeg">
+            <div class="card-content text-center">
+              <h5 class="fw-bold mb-1">Hannatu Sulaiman</h5>
+              <p class="fw-semibold mb-1" style="color:#28a745 !important;">Ameera</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6" data-aos="fade-left" data-aos-delay="300">
+          <div class="card official-card text-white border-0 shadow-sm lazy-bg" data-bg="images/2025/secgen.jpg">
+            <div class="card-content text-center">
+              <h5 class="fw-bold mb-1">Umar Faruk Abdullahi</h5>
+              <p class="fw-semibold mb-1" style="color:#28a745 !important;">Secretary General</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5" data-aos="fade-left" data-aos-delay="400">
+        <a href="officials.html" class="btn btn-success btn-lg rounded-pill px-4 shadow-sm d-inline-flex align-items-center gap-2">
+          See More <i class="bi bi-arrow-right-circle-fill"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" style="background:#e9ecef;">
+    <div class="container overflow-hidden">
+      <div class="text-center mb-5" data-aos="fade-left">
+        <h2 class="fw-bold">Our Services</h2>
+        <p class="text-muted mx-auto" style="max-width:700px;">
+          We strive to nurture faith, education, and community through impactful programs and initiatives that strengthen our members spiritually, academically, and socially.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-left" data-aos-delay="100">
+          <div class="card h-100 text-center border-0 shadow rounded-4 p-4">
+            <div class="mb-3 text-success fs-1"><i class="bi bi-moon-stars-fill"></i></div>
+            <h5 class="fw-bold">Spiritual Development</h5>
+            <p class="text-muted">Organizing Jumu’ah prayers, Tafsir sessions, and Islamic lectures to enrich members’ spiritual lives.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-left" data-aos-delay="200">
+          <div class="card h-100 text-center border-0 shadow rounded-4 p-4">
+            <div class="mb-3 text-success fs-1"><i class="bi bi-people-fill"></i></div>
+            <h5 class="fw-bold">Mentorship & Guidance</h5>
+            <p class="text-muted">Providing mentorship programs, counseling, and academic guidance to help members excel in both faith and education.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-left" data-aos-delay="300">
+          <div class="card h-100 text-center border-0 shadow rounded-4 p-4">
+            <div class="mb-3 text-success fs-1"><i class="bi bi-heart-fill"></i></div>
+            <h5 class="fw-bold">Community Outreach</h5>
+            <p class="text-muted">Engaging in charitable activities, community service, and interfaith dialogue to promote peace and understanding.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-success text-white pt-5 pb-3">
+    <div class="container text-center overflow-hidden">
+      <div class="mb-4" data-aos="fade-left">
+        <h4 class="fw-bold">Muslim Students Society of Nigeria</h4>
+        <p class="mb-1">NILEST Chapter</p>
+        <p class="text-light small">Dedicated to promoting Islamic values, unity, and excellence among students.</p>
+      </div>
+
+      <div class="mb-4" data-aos="fade-left" data-aos-delay="150">
+        <a href="#" class="text-white fs-4 mx-2"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-white fs-4 mx-2"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="text-white fs-4 mx-2"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="text-white fs-4 mx-2"><i class="bi bi-envelope-fill"></i></a>
+      </div>
+
+      <div class="border-top border-light pt-3" data-aos="fade-left" data-aos-delay="300">
+        <p class="mb-0 small">&copy; <span id="year"></span> MSSN NILEST Chapter. All Rights Reserved.</p>
+        <p class="small mb-0">Designed with ❤️ by MSSN Media Team</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // ✅ Initialize AOS
+    AOS.init({ duration: 1000, once: true });
+
+    // ✅ Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ✅ Lazy-load background images
+    const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+    const bgObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const bgUrl = el.getAttribute('data-bg');
+          el.style.backgroundImage = `url('${bgUrl}')`;
+          observer.unobserve(el);
+        }
+      });
+    });
+
+    lazyBackgrounds.forEach(el => bgObserver.observe(el));
+  </script>
 </body>
 </html>
