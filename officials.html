@@ -133,7 +133,7 @@
         <!-- 2025 Officials -->
         <div class="tab-pane fade show active" id="officials-2025" role="tabpanel" aria-labelledby="tab-2025">
           <div class="row g-4 justify-content-center">
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="abdullahi musa" data-position="ameer" data-id="001">
+            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Sani Haruna" data-position="ameer" data-id="001">
               <div class="card official-card" style="background-image: url('images/2025/ameer.jpeg');">
                 <div class="card-content">
                   <h5 class="fw-bold mb-1">001</h5>
@@ -233,12 +233,12 @@
               </div>
             </div>
 
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Habiba Adam" data-position="Mosque Commitee" data-id="">
+            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Habiba Adam" data-position="Mosque Committee" data-id="">
               <div class="card official-card" style="background-image: url('images/2025/mosque_com1.jpg');">
                 <div class="card-content">
                   <h5 class="fw-bold mb-1"></h5>
                   <h5 class="fw-bold mb-1">Habiba Adam</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">Mosque Commitee</p>
+                  <p class="fw-semibold mb-1" style="color: aqua;">Mosque Committee</p>
                 </div>
               </div>
             </div>
@@ -274,60 +274,64 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
 
-  <script>
-    AOS.init({ duration: 1000, once: true });
+  // ✅ Improved Search Functionality
+  const searchInput = document.getElementById('searchInput');
+  const noRecord = document.getElementById('noRecord');
+  const noRecordText = document.getElementById('noRecordText');
 
-    // ✅ Search Functionality
-    const searchInput = document.getElementById('searchInput');
-    const noRecord = document.getElementById('noRecord');
-    const noRecordText = document.getElementById('noRecordText');
+  searchInput.addEventListener('input', function() {
+    const query = this.value.toLowerCase().trim();
+    const activeTab = document.querySelector('.tab-pane.active');
+    const activeYear = activeTab.id.includes('2025') ? '2025' : '2026';
+    const items = document.querySelectorAll('.official-item');
+    let visibleCount = 0;
+    let foundInOtherTab = null;
 
-    searchInput.addEventListener('input', function() {
-      const query = this.value.toLowerCase().trim();
-      const activeTab = document.querySelector('.tab-pane.active');
-      const activeYear = activeTab.id.includes('2025') ? '2025' : '2026';
-      const items = document.querySelectorAll('.official-item');
-      let visibleCount = 0;
-      let foundInOtherTab = null;
+    items.forEach(item => {
+      // Normalize data
+      const name = (item.dataset.name || '').toLowerCase();
+      const position = (item.dataset.position || '').toLowerCase();
+      const id = (item.dataset.id || '').toLowerCase();
+      const year = item.dataset.year;
 
-      items.forEach(item => {
-        const name = item.dataset.name;
-        const position = item.dataset.position;
-        const id = item.dataset.id;
-        const match = name.includes(query) || position.includes(query) || id.includes(query);
+      const match = name.includes(query) || position.includes(query) || id.includes(query);
 
-        if (match && query) {
-          if (item.dataset.year === activeYear) {
-            item.style.display = '';
-            visibleCount++;
-          } else {
-            foundInOtherTab = item.dataset.year;
-            item.style.display = 'none';
-          }
+      if (query && match) {
+        if (year === activeYear) {
+          item.style.display = '';
+          visibleCount++;
         } else {
-          item.style.display = query ? 'none' : '';
-        }
-      });
-
-      if (!query) {
-        noRecord.style.display = 'none';
-        return;
-      }
-
-      if (visibleCount === 0) {
-        noRecord.style.display = 'block';
-        if (foundInOtherTab) {
-          noRecordText.textContent = `No result here. Try switching to tab ${foundInOtherTab} Executives.`;
-        } else {
-          noRecordText.textContent = 'No record found.';
+          foundInOtherTab = year;
+          item.style.display = 'none';
         }
       } else {
-        noRecord.style.display = 'none';
+        item.style.display = query ? 'none' : '';
       }
     });
-  </script>
+
+    if (!query) {
+      noRecord.style.display = 'none';
+      return;
+    }
+
+    if (visibleCount === 0) {
+      noRecord.style.display = 'block';
+      if (foundInOtherTab) {
+        noRecordText.textContent = `No result here. Try switching to tab ${foundInOtherTab} Executives.`;
+      } else {
+        noRecordText.textContent = 'No record found.';
+      }
+    } else {
+      noRecord.style.display = 'none';
+    }
+  });
+</script>
+
 </body>
 </html>
+
 
 
