@@ -1,352 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MSSN NILEST BRANCH</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MSSN NILEST BRANCH</title>
 
-  <!-- Bootstrap & Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-  <style>
-    html, body {
-      width: 100%;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
+    <style>
+        html,
+        body {
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-    section {
-      padding: 80px 0;
-    }
+        section {
+            padding: 80px 0;
+        }
 
-    .navbar-brand {
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
 
-    /* Officials Section */
-    .official-card {
-      position: relative;
-      height: 350px;
-      border-radius: 20px;
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.3s ease;
-      color: white;
-    }
+        /* Officials Section */
+        .official-card {
+            position: relative;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+            color: white;
+        }
 
-    .official-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      z-index: 0;
-    }
+        .official-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 0;
+        }
 
-    .official-card .card-content {
-      position: absolute;
-      bottom: 20px;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      z-index: 2;
-    }
+        .official-card .card-content {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+        }
 
-    .official-card:hover {
-      transform: scale(1.03);
-    }
+        .official-card:hover {
+            transform: scale(1.03);
+        }
 
-    /* Search Box */
-    .search-box {
-      max-width: 400px;
-      margin: 0 auto 40px;
-    }
+        /* Search Box */
+        .search-box {
+            max-width: 400px;
+            margin: 0 auto 40px;
+        }
 
-    /* No Record */
-    .no-record {
-      display: none;
-      text-align: center;
-      padding: 40px 0;
-      color: #6c757d;
-    }
+        /* No Record */
+        .no-record {
+            display: none;
+            text-align: center;
+            padding: 40px 0;
+            color: #6c757d;
+        }
 
-    .no-record img {
-      width: 180px;
-      margin-bottom: 20px;
-      opacity: 0.7;
-    }
-  </style>
+        .no-record img {
+            width: 180px;
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow-sm">
-    <div class="container">
-      <a class="navbar-brand" href="#">MSSN NILEST</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Officials Section -->
-  <section id="officials" style="background:#f8f9fa; margin-top: 80px;">
-    <div class="container overflow-hidden">
-      <div class="text-center mb-4" data-aos="fade-up">
-        <h2 class="fw-bold">Our Officials</h2>
-        <p class="text-muted mx-auto" style="max-width:700px;">
-          Meet the dedicated leaders of the MSSN NILEST branch, committed to guiding our members with wisdom, service, and faith.
-        </p>
-      </div>
-
-      <!-- Search Field -->
-      <div class="search-box text-center">
-        <input type="text" id="searchInput" class="form-control" placeholder="Search by name, position, or ID...">
-      </div>
-
-      <!-- Year Tabs -->
-      <ul class="nav nav-pills justify-content-center mb-5" id="yearTabs" role="tablist">
-        <li class="nav-item">
-          <button class="nav-link" id="tab-2025" data-bs-toggle="pill" data-bs-target="#officials-2025" type="button" role="tab">2025 Executives</button>
-        </li>
-        <li class="nav-item">
-          <button class="nav-link active" id="tab-2026" data-bs-toggle="pill" data-bs-target="#officials-2026" type="button" role="tab">2026 Executives</button>
-        </li>
-      </ul>
-
-      <!-- Tab Content -->
-      <div class="tab-content" id="yearTabsContent">
-
-        <!-- 2025 Officials -->
-        <div class="tab-pane fade show" id="officials-2025" role="tabpanel" aria-labelledby="tab-2025">
-          <div class="row g-4 justify-content-center">
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Sani Haruna" data-position="ameer" data-id="001">
-              <div class="card official-card" style="background-image: url('images/2025/ameer.jpeg');">
-                <div class="card-content">
-                  <h5 class="fw-bold mb-1">001</h5>
-                  <h5 class="fw-bold mb-1">Sani Haruna</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">Ameer</p>
-                </div>
-              </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">MSSN NILEST</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                </ul>
             </div>
-
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="hannatu sulaiman" data-position="ameera" data-id="002">
-              <div class="card official-card" style="background-image: url('images/2025/ameera.jpeg');">
-                <div class="card-content">
-                  <h5 class="fw-bold mb-1">002</h5>
-                  <h5 class="fw-bold mb-1">Hannatu Sulaiman</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">Ameera</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="umar faruk abdullahi" data-position="secretary general" data-id="003">
-              <div class="card official-card" style="background-image: url('images/2025/secgen.jpg');">
-                <div class="card-content">
-                  <h5 class="fw-bold mb-1">003</h5>
-                  <h5 class="fw-bold mb-1">Umar Faruk Abdullahi</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">Secretary General</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Yusuf Abubakar" data-position="PRO 1" data-id="021">
-              <div class="card official-card" style="background-image: url('images/2025/pro1.jpeg');">
-                <div class="card-content">
-                  <h5 class="fw-bold mb-1">021</h5>
-                  <h5 class="fw-bold mb-1">Yusuf Abubakar</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">PRO 1</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Ahmad Hussaini Hamza" data-position="PRO 3" data-id="">
-              <div class="card official-card" style="background-image: url('images/2025/pro3.jpg');">
-                <div class="card-content">
-                  <h5 class="fw-bold mb-1"></h5>
-                  <h5 class="fw-bold mb-1">Ahmad Hussaini Hamza</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">PRO 3</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Umar Dahiru" data-position="Da'awa 1" data-id="022">
-              <div class="card official-card" style="background-image: url('images/2025/daawa1.jpeg');">
-                <div class="card-content">
-                  <h5 class="fw-bold mb-1">022</h5>
-                  <h5 class="fw-bold mb-1">Umar Dahiru</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">Da'awa Chairman 1</p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Zainab Muhammad Bala" data-position="Da'awa Chairlady 2" data-id="007">
-              <div class="card official-card" style="background-image: url('images/2025/female_daawa2.jpg');">
-                <div class="card-content">
-                  <h5 class="fw-bold mb-1">007</h5>
-                  <h5 class="fw-bold mb-1">Zainab Muhammad Bala</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">Da'awa Chairlady 2</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Khadija Muhammad" data-position="Khadimatul Masjid 2" data-id="">
-              <div class="card official-card" style="background-image: url('images/2025/female_mosque2.jpg');">
-                <div class="card-content">
-                  <h5 class="fw-bold mb-1">011</h5>
-                  <h5 class="fw-bold mb-1">Khadija Muhammad</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">Khadimatul masjid 2</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Amina Ango" data-position="Khadimatul Masjid 3" data-id="">
-              <div class="card official-card" style="background-image: url('images/2025/female_mosque3.jpg');">
-                <div class="card-content">
-                  <h5 class="fw-bold mb-1"></h5>
-                  <h5 class="fw-bold mb-1">Amina Ango</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">Khadimatul masjid 3</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Muhammad Ibrahim Musa" data-position="Education Chairman 1" data-id="017">
-              <div class="card official-card" style="background-image: url('images/2025/education1.jpg');">
-                <div class="card-content">
-                  <h5 class="fw-bold mb-1">017</h5>
-                  <h5 class="fw-bold mb-1">Muhammad Ibrahim Musa</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">Education Chairman 1</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Salisu Ibrahim" data-position="Special Adviser" data-id="">
-              <div class="card official-card" style="background-image: url('images/2025/sa.jpg');">
-                <div class="card-content">
-                  <h5 class="fw-bold mb-1"></h5>
-                  <h5 class="fw-bold mb-1">Salisu Ibrahim</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">Special Adviser</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Habiba Adam" data-position="Mosque Commitee" data-id="">
-              <div class="card official-card" style="background-image: url('images/2025/mosque_com1.jpg');">
-                <div class="card-content">
-                  <h5 class="fw-bold mb-1"></h5>
-                  <h5 class="fw-bold mb-1">Habiba Adam</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">Mosque Commitee</p>
-                </div>
-              </div>
-            </div>
-            
-          </div>
         </div>
+    </nav>
 
-        <!-- 2026 Officials -->
-        <div class="tab-pane fade active" id="officials-2026" role="tabpanel" aria-labelledby="tab-2026">
-          <div class="row g-4 justify-content-center">
-            <div class="col-md-4 col-sm-6 official-item" data-year="2026" data-name="ahmad sani" data-position="ameer" data-id="004">
-              <div class="card official-card" style="background-image: url('images/2026/ameer.jpg');">
-                <div class="card-content">
-                  <h5 class="fw-bold mb-1">054</h5>
-                  <h5 class="fw-bold mb-1">Ibrahim Umar</h5>
-                  <p class="fw-semibold mb-1" style="color: aqua;">Ameer</p>
-                </div>
-              </div>
+    <!-- Officials Section -->
+    <section id="officials" style="background:#f8f9fa; margin-top: 80px;">
+        <div class="container overflow-hidden">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h2 class="fw-bold">Our Officials</h2>
+                <p class="text-muted mx-auto" style="max-width:700px;">
+                    Meet the dedicated leaders of the MSSN NILEST branch, committed to guiding our members with wisdom,
+                    service, and faith.
+                </p>
             </div>
-          </div>
+
+            <!-- Search Field -->
+            <div class="search-box text-center">
+                <input type="text" id="searchInput" class="form-control"
+                    placeholder="Search by name, position, or ID...">
+            </div>
+
+            <!-- Year Tabs -->
+            <ul class="nav nav-pills justify-content-center mb-5" id="yearTabs" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link" id="tab-2025" data-bs-toggle="pill" data-bs-target="#officials-2025"
+                        type="button" role="tab">2025 Executives</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link active" id="tab-2026" data-bs-toggle="pill" data-bs-target="#officials-2026"
+                        type="button" role="tab">2026 Executives</button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="yearTabsContent">
+
+                <!-- 2025 Officials -->
+                <div class="tab-pane fade" id="officials-2025" role="tabpanel" aria-labelledby="tab-2025">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Sani Haruna"
+                            data-position="ameer" data-id="001">
+                            <div class="card official-card" style="background-image: url('images/2025/ameer.jpeg');">
+                                <div class="card-content">
+                                    <h5 class="fw-bold mb-1">001</h5>
+                                    <h5 class="fw-bold mb-1">Sani Haruna</h5>
+                                    <p class="fw-semibold mb-1" style="color: aqua;">Ameer</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="hannatu sulaiman"
+                            data-position="ameera" data-id="002">
+                            <div class="card official-card" style="background-image: url('images/2025/ameera.jpeg');">
+                                <div class="card-content">
+                                    <h5 class="fw-bold mb-1">002</h5>
+                                    <h5 class="fw-bold mb-1">Hannatu Sulaiman</h5>
+                                    <p class="fw-semibold mb-1" style="color: aqua;">Ameera</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="umar faruk abdullahi"
+                            data-position="secretary general" data-id="003">
+                            <div class="card official-card" style="background-image: url('images/2025/secgen.jpg');">
+                                <div class="card-content">
+                                    <h5 class="fw-bold mb-1">003</h5>
+                                    <h5 class="fw-bold mb-1">Umar Faruk Abdullahi</h5>
+                                    <p class="fw-semibold mb-1" style="color: aqua;">Secretary General</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Yusuf Abubakar"
+                            data-position="PRO 1" data-id="021">
+                            <div class="card official-card" style="background-image: url('images/2025/pro1.jpeg');">
+                                <div class="card-content">
+                                    <h5 class="fw-bold mb-1">021</h5>
+                                    <h5 class="fw-bold mb-1">Yusuf Abubakar</h5>
+                                    <p class="fw-semibold mb-1" style="color: aqua;">PRO 1</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Ahmad Hussaini Hamza"
+                            data-position="PRO 3" data-id="">
+                            <div class="card official-card" style="background-image: url('images/2025/pro3.jpg');">
+                                <div class="card-content">
+                                    <h5 class="fw-bold mb-1"></h5>
+                                    <h5 class="fw-bold mb-1">Ahmad Hussaini Hamza</h5>
+                                    <p class="fw-semibold mb-1" style="color: aqua;">PRO 3</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Umar Dahiru"
+                            data-position="Da'awa 1" data-id="022">
+                            <div class="card official-card" style="background-image: url('images/2025/daawa1.jpeg');">
+                                <div class="card-content">
+                                    <h5 class="fw-bold mb-1">022</h5>
+                                    <h5 class="fw-bold mb-1">Umar Dahiru</h5>
+                                    <p class="fw-semibold mb-1" style="color: aqua;">Da'awa Chairman 1</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Zainab Muhammad Bala"
+                            data-position="Da'awa Chairlady 2" data-id="007">
+                            <div class="card official-card"
+                                style="background-image: url('images/2025/female_daawa2.jpg');">
+                                <div class="card-content">
+                                    <h5 class="fw-bold mb-1">007</h5>
+                                    <h5 class="fw-bold mb-1">Zainab Muhammad Bala</h5>
+                                    <p class="fw-semibold mb-1" style="color: aqua;">Da'awa Chairlady 2</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Khadija Muhammad"
+                            data-position="Khadimatul Masjid 2" data-id="">
+                            <div class="card official-card"
+                                style="background-image: url('images/2025/female_mosque2.jpg');">
+                                <div class="card-content">
+                                    <h5 class="fw-bold mb-1">011</h5>
+                                    <h5 class="fw-bold mb-1">Khadija Muhammad</h5>
+                                    <p class="fw-semibold mb-1" style="color: aqua;">Khadimatul masjid 2</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Amina Ango"
+                            data-position="Khadimatul Masjid 3" data-id="">
+                            <div class="card official-card"
+                                style="background-image: url('images/2025/female_mosque3.jpg');">
+                                <div class="card-content">
+                                    <h5 class="fw-bold mb-1"></h5>
+                                    <h5 class="fw-bold mb-1">Amina Ango</h5>
+                                    <p class="fw-semibold mb-1" style="color: aqua;">Khadimatul masjid 3</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Muhammad Ibrahim Musa"
+                            data-position="Education Chairman 1" data-id="017">
+                            <div class="card official-card"
+                                style="background-image: url('images/2025/education1.jpg');">
+                                <div class="card-content">
+                                    <h5 class="fw-bold mb-1">017</h5>
+                                    <h5 class="fw-bold mb-1">Muhammad Ibrahim Musa</h5>
+                                    <p class="fw-semibold mb-1" style="color: aqua;">Education Chairman 1</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Salisu Ibrahim"
+                            data-position="Special Adviser" data-id="">
+                            <div class="card official-card" style="background-image: url('images/2025/sa.jpg');">
+                                <div class="card-content">
+                                    <h5 class="fw-bold mb-1"></h5>
+                                    <h5 class="fw-bold mb-1">Salisu Ibrahim</h5>
+                                    <p class="fw-semibold mb-1" style="color: aqua;">Special Adviser</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 official-item" data-year="2025" data-name="Habiba Adam"
+                            data-position="Mosque Commitee" data-id="">
+                            <div class="card official-card"
+                                style="background-image: url('images/2025/mosque_com1.jpg');">
+                                <div class="card-content">
+                                    <h5 class="fw-bold mb-1"></h5>
+                                    <h5 class="fw-bold mb-1">Habiba Adam</h5>
+                                    <p class="fw-semibold mb-1" style="color: aqua;">Mosque Commitee</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 2026 Officials -->
+                <div class="tab-pane fade show active" id="officials-2026" role="tabpanel" aria-labelledby="tab-2026">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-md-4 col-sm-6 official-item" data-year="2026" data-name="ahmad sani"
+                            data-position="ameer" data-id="004">
+                            <div class="card official-card" style="background-image: url('images/2026/ameer.jpg');">
+                                <div class="card-content">
+                                    <h5 class="fw-bold mb-1">054</h5>
+                                    <h5 class="fw-bold mb-1">Ibrahim Umar</h5>
+                                    <p class="fw-semibold mb-1" style="color: aqua;">Ameer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- No Record Message -->
+            <div id="noRecord" class="no-record">
+                <img src="images/emoji/no-record-found.png" alt="No Record">
+                <h5 id="noRecordText">No record found</h5>
+            </div>
         </div>
+    </section>
 
-      </div>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-      <!-- No Record Message -->
-      <div id="noRecord" class="no-record">
-        <img src="images/emoji/no-record-found.png" alt="No Record">
-        <h5 id="noRecordText">No record found</h5>
-      </div>
-    </div>
-  </section>
+    <script>
+        AOS.init({ duration: 1000, once: true });
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+        // ✅ Improved Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const noRecord = document.getElementById('noRecord');
+        const noRecordText = document.getElementById('noRecordText');
 
- <script>
-  AOS.init({ duration: 1000, once: true });
+        searchInput.addEventListener('input', function () {
+            const query = this.value.toLowerCase().trim();
+            const activeTab = document.querySelector('.tab-pane.active');
+            const activeYear = activeTab.id.includes('2025') ? '2025' : '2026';
+            const items = document.querySelectorAll('.official-item');
+            let visibleCount = 0;
+            let foundInOtherTab = null;
 
-  // ✅ Improved Search Functionality
-  const searchInput = document.getElementById('searchInput');
-  const noRecord = document.getElementById('noRecord');
-  const noRecordText = document.getElementById('noRecordText');
+            items.forEach(item => {
+                // Normalize data
+                const name = (item.dataset.name || '').toLowerCase();
+                const position = (item.dataset.position || '').toLowerCase();
+                const id = (item.dataset.id || '').toLowerCase();
+                const year = item.dataset.year;
 
-  searchInput.addEventListener('input', function() {
-    const query = this.value.toLowerCase().trim();
-    const activeTab = document.querySelector('.tab-pane.active');
-    const activeYear = activeTab.id.includes('2025') ? '2025' : '2026';
-    const items = document.querySelectorAll('.official-item');
-    let visibleCount = 0;
-    let foundInOtherTab = null;
+                const match = name.includes(query) || position.includes(query) || id.includes(query);
 
-    items.forEach(item => {
-      // Normalize data
-      const name = (item.dataset.name || '').toLowerCase();
-      const position = (item.dataset.position || '').toLowerCase();
-      const id = (item.dataset.id || '').toLowerCase();
-      const year = item.dataset.year;
+                if (query && match) {
+                    if (year === activeYear) {
+                        item.style.display = '';
+                        visibleCount++;
+                    } else {
+                        foundInOtherTab = year;
+                        item.style.display = 'none';
+                    }
+                } else {
+                    item.style.display = query ? 'none' : '';
+                }
+            });
 
-      const match = name.includes(query) || position.includes(query) || id.includes(query);
+            if (!query) {
+                noRecord.style.display = 'none';
+                return;
+            }
 
-      if (query && match) {
-        if (year === activeYear) {
-          item.style.display = '';
-          visibleCount++;
-        } else {
-          foundInOtherTab = year;
-          item.style.display = 'none';
-        }
-      } else {
-        item.style.display = query ? 'none' : '';
-      }
-    });
-
-    if (!query) {
-      noRecord.style.display = 'none';
-      return;
-    }
-
-    if (visibleCount === 0) {
-      noRecord.style.display = 'block';
-      if (foundInOtherTab) {
-        noRecordText.textContent = `No result here. Try switching to tab ${foundInOtherTab} Executives.`;
-      } else {
-        noRecordText.textContent = 'No record found.';
-      }
-    } else {
-      noRecord.style.display = 'none';
-    }
-  });
-</script>
+            if (visibleCount === 0) {
+                noRecord.style.display = 'block';
+                if (foundInOtherTab) {
+                    noRecordText.textContent = `No result here. Try switching to tab ${foundInOtherTab} Executives.`;
+                } else {
+                    noRecordText.textContent = 'No record found.';
+                }
+            } else {
+                noRecord.style.display = 'none';
+            }
+        });
+    </script>
 
 </body>
+
 </html>
-
-
-
-
-
-
-
